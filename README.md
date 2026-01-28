@@ -2,7 +2,7 @@
 
 ### Author:
 Rohan Mohapatra,  
-Integrated M.Sc. Physics & Astronomy  
+Integrated M.Sc. Physics & Astronomy, NIT Rourkela    
 Interested in Machine Learning, Quantum Computing and physics
 
 This project is a physics-focused Retrieval-Augmented Generation (RAG) chatbot built using **LangGraph**, **LangChain**, **FAISS**, and **Open Source LLMs**.  
@@ -22,6 +22,21 @@ The system supports conversational physics queries, numerical problem solving, a
 - 🔒 **Open Source LLMs**
 
 ---
+
+## Tech Stacks used:
+
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?logo=chainlink&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-0A0A0A?logo=graphql&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-0467DF?logo=meta&logoColor=white)
+![SentenceTransformers](https://img.shields.io/badge/SentenceTransformers-FF6F00?logo=huggingface&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![PyPDF2](https://img.shields.io/badge/PyPDF2-003B57?logo=adobeacrobatreader&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37626?logo=jupyter&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?logo=huggingface&logoColor=black)
+![DeepSeek](https://img.shields.io/badge/DeepSeek-000000?logo=deepseek&logoColor=white)
+
+
 
 ## System Description
 The newer version of the chatbot "app_1.py" is upgraded to Langgraph based implementation from the older Langchain based version.
@@ -88,10 +103,10 @@ The frontend is built using **Streamlit**, allowing users to:
 ---
 ## Future Improvements
 
-Multi-document summarization
-Multimodal capabilities Including Image besed query processing and OCR
-More tool integratin to induce more agentic behaviour
-Evaluation on physics benchmark datasets
+Multi-document summarization  
+Multimodal capabilities Including Image besed query processing and OCR  
+More tool integratin to induce more agentic behaviour  
+Evaluation on physics benchmark datasets  
 
 ## 📂 Repository Structure
 
