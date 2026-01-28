@@ -1,3 +1,8 @@
+################################################################################
+# Author : Rohan Mohapatra
+# Email : rohanmohapatra100@gmail.com
+################################################################################
+
 from langgraph.graph import StateGraph, START, END
 from typing import TypedDict, Literal,Annotated
 from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
@@ -268,6 +273,7 @@ if query:
     if st.session_state.graph_state.get("messages_chat"):
         with st.chat_message("assistant"):
             st.markdown(st.session_state.graph_state["messages_chat"][-1].content)
+
 
 
 
