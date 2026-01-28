@@ -1,6 +1,11 @@
-# 🧠 Physics RAG Chatbot using LangGraph & Local LLM
+# 🧠 Physics RAG Chatbot using LangChain, LangGraph & OpenSource LLM
 
-A physics-focused Retrieval-Augmented Generation (RAG) chatbot built using **LangGraph**, **LangChain**, **FAISS**, and **Open Source LLMs**.  
+### Author:
+Rohan Mohapatra,  
+Integrated M.Sc. Physics & Astronomy  
+Interested in Machine Learning, Quantum Computing and physics
+
+This project is a physics-focused Retrieval-Augmented Generation (RAG) chatbot built using **LangGraph**, **LangChain**, **FAISS**, and **Open Source LLMs**.  
 The system supports conversational physics queries, numerical problem solving, and research paper summarization through a structured graph-based workflow.
 
 ---
@@ -14,15 +19,40 @@ The system supports conversational physics queries, numerical problem solving, a
 - 📄 **Research paper summarization (PDF input)**
 - 🧩 **Intent-based routing** (chat / numericals / summarization)
 - 🖥️ **Interactive Streamlit UI**
-- 🔒 **Local LLM inference** (no external API calls)
+- 🔒 **Open Source LLMs**
 
 ---
 
+## System Description
+The newer version of the chatbot "app_1.py" is upgraded to Langgraph based implementation from the older Langchain based version.
+This upgrade introduces a graph-driven control flow that explicitly models the reasoning pipeline as a state machine rather than a linear chain.  
+Each user query is processed through a well-defined sequence of nodes, enabling better modularity, interpretability, and control over how information flows through the system.
+
+The memory feature was implemented by storing the conversation data in the session_state of Streamlit UI, which was recursively used to give contexts using different prompts to the LLMs.
+
+Altough every node which requires and LLM call uses the Same model "Deepseek-R1", it can be modified throuch the code with minimal changes to accommodate task specific fine tuned LLMs. The choice of using this particular model was made as it was one of the best models availabe free of cost.
+
+At a high level, the system operates as follows:
+
+1. **User Interaction Layer (Streamlit UI)**  
+   The user selects a task mode (physics chat, numerical problem solving, or research paper summarization) and submits a query or document. This choice determines the intent stored in the global graph state.
+
+2. **Intent-Aware Routing (LangGraph)**  
+   Based on the selected intent, the LangGraph workflow conditionally routes the input to specialized nodes responsible for retrieval, numerical reasoning, or summarization.
+
+3. **Retrieval-Augmented Generation (RAG)**  
+   A large corpus of physics and mathematicsbased books avilable on the internet was created, Which was then chunked and stored in form of FAISS vectorstore.
+   Retrival was performed as a tool calling feature based on the requirement of the Language model.
+
+5. **Task-Specific Reasoning Nodes**  
+   Separate nodes handle conversational explanations, step-by-step numerical solutions, and research paper summarization. Each node uses task-appropriate prompting strategyvto ensure clarity and domain relevance.
+
+6. **Response Consolidation and Presentation**  
+   The generated response is passed to a final chat node, which formats and presents the output consistently in the user interface.
+
+
 ## 🏗️ System Architecture
 
-The application is orchestrated using a **LangGraph state machine**, where the user query is routed based on intent.
-
-### 🔁 Graph Flow
 - User input → Base Node  
 - Conditional routing:
   - Physics chat → Retriever
@@ -56,6 +86,12 @@ The frontend is built using **Streamlit**, allowing users to:
 ![Summarization UI](Screenshots/Research_paper_summary.png)
 
 ---
+## Future Improvements
+
+Multi-document summarization
+Multimodal capabilities Including Image besed query processing and OCR
+More tool integratin to induce more agentic behaviour
+Evaluation on physics benchmark datasets
 
 ## 📂 Repository Structure
 
@@ -66,3 +102,7 @@ The frontend is built using **Streamlit**, allowing users to:
 ├── retrival_logic.ipynb        # Retrieval and RAG experimentation
 ├── README.md
 ├── Old version/                # Archived experimental code
+
+
+
+
